@@ -7,9 +7,10 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 app.get("/healthz", (req: Request, res: Response) => {
-  res.json({
+  const body = {
     status: "OK",
-  });
+  };
+  res.status(200).type("application/json").json(body);
 });
 
 app.listen(port, () => {
