@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import { sendResponse, someAlgorithm } from "./algorithm";
 
 dotenv.config();
 
@@ -10,11 +11,12 @@ app.get("/healthz", (req: Request, res: Response) => {
   const body = {
     status: "OK",
   };
-  res.writeHead(200, {
-    "Content-Type": "application/json",
-  });
-  res.write(JSON.stringify(body));
-  res.end();
+  sendResponse(res, body);
+});
+
+app.get("/test", (req: Request, res: Response) => {
+  const result = someAlgorithm();
+  sendResponse(res, result);
 });
 
 app.listen(port, () => {
