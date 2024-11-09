@@ -10,7 +10,11 @@ app.get("/healthz", (req: Request, res: Response) => {
   const body = {
     status: "OK",
   };
-  res.status(200).type("application/json").json(body);
+  res.writeHead(200, {
+    "Content-Type": "application/json",
+  });
+  res.write(JSON.stringify(body));
+  res.end();
 });
 
 app.listen(port, () => {
