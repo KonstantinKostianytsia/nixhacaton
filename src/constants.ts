@@ -1,0 +1,7 @@
+export const MAX_MAXIMIZER_VALUE = 100;
+export const MIN_MINIMIZER_VALUE = -100;
+
+export const POSITIVE_INFINITE = 100000000;
+export const NEGATIVE_INFINITE = -100000000;
+
+export const CALCULATION_DEPTH = 10;
